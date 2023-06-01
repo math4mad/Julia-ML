@@ -13,4 +13,4 @@ lines!(ax1,tspan,pdf.(d,tspan))
 lines!(ax2,tspan,cdf.(d,tspan))
 
 fig
-save("uniform(0.2,0.6)-pdf-cdf.png",fig)
+#save("uniform(0.2,0.6)-pdf-cdf.png",fig)
