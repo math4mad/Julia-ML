@@ -2,7 +2,6 @@
 按照 iris-plots 方法生成corner图
 """
 
-
 using MLJ, DataFrames, GLMakie, CSV
 
 
@@ -12,7 +11,7 @@ function load_penguins(path::String)
     df = fetch(path) |>to_ScienceType
     X = df[:, 3:6]
     y = df[:, 1]
-    (X, y)
+    return (X, y)
 
 end
 

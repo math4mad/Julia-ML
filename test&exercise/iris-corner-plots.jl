@@ -12,7 +12,7 @@ iris = load_iris()|>DataFrame;
 byCat = iris.target
 categ = unique(byCat)
 label = ["sepal_length", "sepal_width", "petal_length", "petal_width"]
-axs = [] #use for store every single axis to get label information
+#use for store every single axis to get label information
 colors1 = [:orange, :lightgreen, :purple]
 
 
