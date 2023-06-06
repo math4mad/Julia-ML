@@ -12,6 +12,7 @@ using DataFrames
 using MLJ
 using Plots
 using Random
+using KernelFunctions
 
 """
     data_prepare(str)
@@ -67,6 +68,8 @@ cat=df[:,:color]|>levels|>length # 类别
 
 
 SVC = @load SVC pkg=LIBSVM
+
+
 svc_mdl = SVC()
 svc = machine(svc_mdl, X, y)
 @time fit!(svc);
