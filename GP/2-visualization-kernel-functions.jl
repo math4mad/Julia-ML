@@ -44,9 +44,10 @@ end
 function  plot_matrix_heatmap(k::Kernel)
     K = kernelmatrix(k, X)
     fig = Figure()
-    ax = Axis(fig[1, 1])
-    hm=heatmap!(ax, X,X,K)
+    ax = Axis(fig[1, 1],yreversed=true)
+    hm=heatmap!(ax,X,X,K)
     Colorbar(fig[1, 2], hm)
+    
     fig
 
 end
@@ -70,27 +71,25 @@ fig=Figure(resolution=(600,2400))
 
 for i in eachindex(kernels)
 
-    K = kernelmatrix(kernels[i],X)
-    data= mvn_sample(K)
+    local K = kernelmatrix(kernels[i],X)
+    local data= mvn_sample(K)
     kname=string(nameof(typeof(kernels[i])))
     ax1=Axis(fig[i,1];)
-    #ax2=Axis(fig[i,2])
+    ax2=Axis(fig[i,2];yreversed=true)
+
     
     for i in 1:num_samples
-        lines!(ax1,X, data[:,i];label=i==1 ? "$(kname)" : nothing)
+        lines!(ax1,X,data[:,i];label=i==1 ? "$(kname)" : nothing)
     end
-    axislegend()
-    #hm=heatmap!(ax2,X,X,K)
+    #heatmap!(ax2,X,X,K)
+    axislegend(ax1)
     #Colorbar(fig[i,3], hm)
-    
-    
 end
 
 fig
 
-save("visualization-kernel-functions-1.png",fig)
-
-
+#save("visualization-kernel-functions-1.png",fig)
+#plot_matrix_heatmap(kernels[1])
 
 
 

@@ -3,8 +3,9 @@ https://juanitorduz.github.io/gaussian_process_reg/
 """
 
 import KernelFunctions:Kernel
-using GaussianProcesses,CSV,GLMakie,Random,Distributions,KernelFunctions,LinearAlgebra,
+using GaussianProcesses,CSV,GLMakie,Random,Distributions,LinearAlgebra,
       StatsBase
+
 Random.seed!(1223)
 n=300
 f1(x)=sin(4pi*x)
@@ -25,10 +26,14 @@ end
 
 
 # generate  training sample observation
-μ=0;δ=0.4
-noise=Normal(μ,δ)|>d->rand(d,n)
-noisedata=data_with_noise=f.(xs)+noise
-test_data=data_with_noise[1:3:end]
+noisedata,testdata=(()->begin
+    μ=0;δ=0.4
+    noise=Normal(μ,δ)|>d->rand(d,n)
+    noisedata=data_with_noise=f.(xs)+noise
+    test_data=data_with_noise[1:3:end]
+    return  noisedata,test_data
+end)()
+
 
 function plot_noise_data()
     fig = Figure()
@@ -109,8 +114,8 @@ function plot_kernel_matrix(k::Kernel,data,noisedata)
     K = kernelmatrix(k, data)
     K2=kernelmatrix(k, noisedata)
     fig=Figure(resolution=(1400,600))
-    ax=Axis(fig[1,1])
-    ax2=Axis(fig[1,3])
+    ax=Axis(fig[1,1],yreversed=true)
+    ax2=Axis(fig[1,3],yreversed=true)
     hm1=heatmap!(ax,data,data,K)
     hm2=heatmap!(ax2,noisedata,noisedata,K2)
     Colorbar(fig[1,2],hm1)
@@ -152,8 +157,7 @@ end
 
 
 
-#plot_prior1(SqExponentialKernel())
-#plot_prior2()
+
 k=SqExponentialKernel()
 data=f.(xs)
 plot_kernel_matrix(k,data,noisedata)
