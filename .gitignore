@@ -24,3 +24,5 @@ docs/site/
 Manifest.toml
 
 .CondaPkg/
+
+mnist_train.csv

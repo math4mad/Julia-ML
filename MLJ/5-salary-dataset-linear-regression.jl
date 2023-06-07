@@ -7,6 +7,7 @@ X=MLJ.table(reshape(df[:,2],30,1))
 y=Vector(df[:,3])
 """
 
+import MLJ:fit!,fitted_params
 using Plots, MLJ,CSV,DataFrames
 
 function data_prepare(str)
@@ -43,4 +44,4 @@ xspan=range(extrema(df[:,2])...,200)
 plot(xspan,f.(xspan),label="fit-line")
 scatter!(df[:,2],df[:,3],label="data",xlabel="YearsExperience",ylabel="Salary")
 
-savefig("5-salary-dataset-linear-regression.png")
+#savefig("5-salary-dataset-linear-regression.png")
