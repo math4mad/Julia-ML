@@ -41,4 +41,4 @@ mach = machine(catboost, Xtrain, ytrain)|>fit!
 yhat = predict_mode(mach, Xtest) 
 
 # # misclassification_rate(yhat, ytest)
- accuracy(yhat,ytest)
+accuracy(yhat,ytest)

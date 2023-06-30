@@ -2,6 +2,7 @@
 An Introduction to Statistical Learning.pdf page 18
 """
 
+import MLJ:transform
 using DataFrames,MLJ,CSV,MLJModelInterface,Plots
 
 function data_prepare(str)
@@ -17,11 +18,11 @@ df=data_prepare(str)
 
 #data 
 rows,cols=size(df)
-Xtr = Matrix(df[:,2:end])'
+Xtr = df[:,2:end]
 Xtr_labels = Vector(df[:,1])
 
 # # split other half to testing set
- Xte = Matrix(df[1:3:end,2:end])'
+ Xte=df[1:3:end,2:end]
  Xte_labels = Vector(df[1:3:end,1])
 
  PCA = @load PCA pkg=MultivariateStats
@@ -31,9 +32,8 @@ Xtr_labels = Vector(df[:,1])
 
  mach = machine(model, Xtr) |> fit!
 
- Xproj =MLJ.transform(mach, Xtr)
+ Xproj =transform(mach, Xtr)
 
- x1,x2=Xproj
+ scatter(Xproj.x1,Xproj.x2,group=Xtr_labels)
 
- scatter(x1,x2)
-
+ 

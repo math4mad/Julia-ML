@@ -8,6 +8,7 @@ function data_prepare(str)
     to_ScienceType(d)=coerce(d,:label=>Multiclass)
     df = fetch(str)|>to_ScienceType
     ytrain, Xtrain=  unpack(df, ==(:label), rng=123);
+    
     cat=ytrain|>levels|>unique
     return ytrain, Xtrain,cat
 end
@@ -22,7 +23,7 @@ PCA = @load PCA pkg=MultivariateStats
 
 function different_pca_components(;n=10)
     acc_arr=[]
-    for i in 1:10:n
+    for i in 1:n
         model1=PCA(maxoutdim=i)
         model2 = LDA()
         mach1 = machine(model1, Xtrain) |> fit!
@@ -38,7 +39,7 @@ end
 
 
 
-acc_arr=different_pca_components(;n=15)
+#acc_arr=different_pca_components(;n=15)
 
  function plot_accuracy(acc_arr)
     len=length(acc_arr)
@@ -49,9 +50,14 @@ acc_arr=different_pca_components(;n=15)
     scatterlines!(ax,xs,acc_arr,markercolor = (:red,0.5))
     fig
     save("17-mnist-PCA-LDA.png",fig)
-end
+ end
 
 
 
-acc_arr=different_pca_components(;n=201)
-plot_accuracy(acc_arr)
+#acc_arr=different_pca_components(;n=201)
+#plot_accuracy(acc_arr)
+
+str="mnist_train"
+ytrain, Xtrain,cat=data_prepare(str)
+
+size(Xtrain)

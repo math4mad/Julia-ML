@@ -28,9 +28,12 @@ y, X =  unpack(df, ==(:Outcome), rng=123);
 
 
 SVC = @load SVC pkg=LIBSVM
-#define kernel function
-kernels=[PolynomialKernel(; degree=2, c=1), SqExponentialKernel(),
-NeuralNetworkKernel(),LinearKernel(;c=1.0)]
+#define kernel function,调用 kernelfunctions 的方法
+kernels=[PolynomialKernel(; degree=2, c=1), 
+         SqExponentialKernel(),
+         NeuralNetworkKernel(),
+         LinearKernel(;c=1.0)
+]
 
 svc_mdl = SVC(kernel=kernels[4])
 svc = machine(svc_mdl, Xtrain, ytrain)

@@ -23,10 +23,10 @@ ytrain, Xtrain,cat=data_prepare(str)
 
 PCA = @load PCA pkg=MultivariateStats
 
-maxdim=3
+maxdim=50
 model=PCA(maxoutdim=maxdim)
 mach = machine(model, Xtrain) |> fit!
-
+#MLJ.save("mnist-pca-50-components-model.jls", mach)
 #Ytr =transform(mach, Xtrain)
 
 
@@ -56,7 +56,6 @@ end
 #plot_digits_cloud()
 
 
-mach
 
 
 

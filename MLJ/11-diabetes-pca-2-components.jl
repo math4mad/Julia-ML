@@ -1,3 +1,7 @@
+
+using Pkg
+Pkg.activate("/Users/lunarcheung/Public/Julia-Code/🟢JuliaProject/1-JuliaMLProject")
+
 import MLJ:transform,predict
 using DataFrames,MLJ,CSV,MLJModelInterface,Plots
 gr()
@@ -24,7 +28,7 @@ ytrain, Xtrain =  unpack(df, ==(:Outcome), rng=123);
 
  mach = machine(model, Xtrain) |> fit!
 
- Ytr =transform(mach, Xtrain)
+ Ytr =transform(mach, Xtrain)  #降维的训练数据
 
  
  
@@ -34,3 +38,4 @@ ytrain, Xtrain =  unpack(df, ==(:Outcome), rng=123);
  scatter(positive[:,1],positive[:,2],marker=:circle,ms=2,label="positive",frame=:origin,xlims=(-500,100))
  scatter!(negative[:,1],negative[:,2],marker=:circle,ms=2,label="negative")
 
+ Xtrain

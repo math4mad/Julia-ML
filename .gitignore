@@ -26,3 +26,6 @@ Manifest.toml
 .CondaPkg/
 
 mnist_train.csv
+Icon?
+*.jls
+catboost_info/

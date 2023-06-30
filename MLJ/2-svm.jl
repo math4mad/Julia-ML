@@ -83,7 +83,7 @@ contourf(tx,ty,ypred,levels=cat,color=cgrad(:redsblues),alpha=0.7)
 p1=scatter!(df[:,:x],df[:,:y],group=df[:,:color],label=false,ms=3,alpha=0.3)
 #savefig(p1,"./$str-svm.png")
 
-
+ypred
 
 
 

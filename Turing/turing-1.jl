@@ -4,7 +4,15 @@ https://storopoli.io/Bayesian-Julia/pages/04_Turing/
 
 """
 
+
+using Pkg
+Pkg.activate("/Users/lunarcheung/Public/Julia-Code/🟢JuliaProject/1-JuliaMLProject")
+
 using Turing, Distributions,Random
+
+
+
+
 Random.seed!(13456)
 
 #=

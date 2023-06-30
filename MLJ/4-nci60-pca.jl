@@ -3,7 +3,7 @@ An Introduction to Statistical Learning.pdf page 18
 直接使用 MultivariateStats 包
 """
 
-import  MultivariateStats:PCA,fit
+import  MultivariateStats:PCA,fit,predict
 using DataFrames,CSV,Plots,MultivariateStats,KernelFunctions,LinearAlgebra
 
 function data_prepare(str)

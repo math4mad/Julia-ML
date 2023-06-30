@@ -69,9 +69,9 @@ df_cov = (cov(df|>Matrix)) .|> d -> round(d, digits=3)
 df_cor = (cor(df|>Matrix)) .|> d -> round(d, digits=3)
 
 
-fig = Figure(resolution=(1200, 600))
-ax1 = Axis(fig[1, 1]; xticks=(1:5, label), yticks=(1:5, label), title="ecommerce cov matrix")
-ax3 = Axis(fig[1, 3], xticks=(1:5, label), yticks=(1:5, label), title="ecommerce cor matrix")
+fig = Figure(resolution=(2200, 800))
+ax1 = Axis(fig[1, 1]; xticks=(1:5, label), yticks=(1:5, label), title="ecommerce cov matrix",yreversed=true)
+ax3 = Axis(fig[1, 3], xticks=(1:5, label), yticks=(1:5, label), title="ecommerce cor matrix",yreversed=true)
 
 hm = heatmap!(ax1, df_cov)
 Colorbar(fig[1, 2], hm)
