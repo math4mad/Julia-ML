@@ -1,0 +1,13 @@
+Shape,Crust_Size,Crust_Shade,Filling_Size,Filling_Shade,Class
+Circle,Thick,Gray,Thick,Dark,pos
+Circle,Thick,White,Thick,Dark,pos
+Triangle,Thick,Dark,Thick,Gray,pos
+Circle,Thin,White,Thin,Dark,pos
+Square,Thick,Dark,Thin,White,pos
+Circle,Thick,White,Thin,Dark,pos
+Circle,Thick,Gray,Thick,White,neg
+Square,Thick,White,Thick,Gray,neg
+Triangle,Thin,Gray,Thin,Dark,neg
+Circle,Thick,Dark,Thick,White,neg
+Square,Thick,White,Thick,Dark,neg
+Triangle,Thick,White,Thick,Gray,neg
