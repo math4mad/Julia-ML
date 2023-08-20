@@ -62,6 +62,9 @@ logObsNoise = -1.0
 """
     参见: https://juliagaussianprocesses.github.io
    /KernelFunctions.jl/stable/examples/gaussian-process-priors/#Random-samples
+   mvn_sample 采样的方法可以使用 MVNormal 的 rand 方法, 在 snippetslab中有代码,协方差矩阵也需要做一点处理
+   K = kernelmatrix(k, xs)
+   f=rand(MvNormal(K+1e-6*I),10)|>transpose
 """
 function plot_prior1(k::Kernel)
     n=300
