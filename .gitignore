@@ -29,3 +29,7 @@ mnist_train.csv
 Icon?
 *.jls
 catboost_info/
+fetch_olivetti_faces.csv
+mnist_train.csv
+lwface.csv
+sarcos_inv.csv

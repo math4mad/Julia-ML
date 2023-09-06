@@ -40,7 +40,7 @@ url="/Users/lunarcheung/Public/Julia-Code/🟢JuliaProject/1-JuliaMLProject/Data
     chain = sample(model, NUTS(), MCMCThreads(), 1_000, 4)
 
     summarystats(chain)
-#===============baye workflow end=========================#
+#===============bayes workflow end=========================#
 
 
 
