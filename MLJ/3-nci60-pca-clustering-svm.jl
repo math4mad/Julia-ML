@@ -40,7 +40,7 @@ Xtr_labels = Vector(df[:,1])
 
  Xproj =transform(mach, Xtr)
 
- function boundary_data(df,;n=200)
+function boundary_data(df,;n=200)
     n1=n2=n
     xlow,xhigh=extrema(df[:,:x1])
     ylow,yhigh=extrema(df[:,:x2])

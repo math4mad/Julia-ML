@@ -140,7 +140,7 @@ plot_comparsion(ytest_arr3,df3,2)
 _,_,_,_ ,xtest2=boundary_data(df2)
 data2=(X2,y2,xtest2)
 ytest_arr2=[_fit(data2,m) for (i,m) in enumerate(models)]
-plot_comparsion(ytest_arr2,df2,3)
+fig=plot_comparsion(ytest_arr2,df2,3)
 
 
 #save("24-classifier-comparison.png",fig)

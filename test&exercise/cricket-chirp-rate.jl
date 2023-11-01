@@ -8,8 +8,6 @@ https://www.britannica.com/animal/snowy-tree-cricket
 
 Calculus Single Variable by Deborah Hughes-Hallett.pdf page 27
 `𝐶 = 4𝑇 − 160`
-
-
 """
 
 import FileIO:load

@@ -22,7 +22,7 @@ df=data_prepare("basic1")
 cat=df[:,:color]|>levels|>length # 类别
 ytrain, Xtrain =  unpack(df, ==(:color), rng=123);
 
-function boundary_data(df;n=200)
+function boundary_data(df::AbstractDataFrame;n=200)
     n1=n2=n
     xlow,xhigh=extrema(df[:,:x])
     ylow,yhigh=extrema(df[:,:y])
